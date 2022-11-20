@@ -14,9 +14,11 @@ class MyApp extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(watchProvider),
-          // ElevatedButton(onPressed: (){
-          //   helloWorld.
-          // }, child: Text('Click me'))
+          ElevatedButton(
+              onPressed: () {
+                ref.read(helloWorld.notifier).state = 'Jahid';
+              },
+              child: const Text('Click me'))
         ],
       )),
     );
