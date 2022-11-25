@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:river_pod/http_get_request.dart';
 
 var incrementNumber = StateProvider<int>((ref) => 0);
 
@@ -22,8 +23,14 @@ class Counter extends ConsumerWidget {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            ref.read(incrementNumber.notifier).state++;
+          onPressed: () async {
+            //  ref.read(incrementNumber.notifier).state++;
+
+            await ApiService().getUsers();
+
+            print('after click');
+            var sum=2+2;
+            print('sum: $sum');
           },
         ),
       ),
